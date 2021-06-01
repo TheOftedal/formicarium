@@ -794,6 +794,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 220945544972212932, guid: cac587eeb00f14344bb32780bc54414c, type: 3}
+      propertyPath: m_RayLength
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2833679119179827857, guid: cac587eeb00f14344bb32780bc54414c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -841,6 +845,10 @@ PrefabInstance:
     - target: {fileID: 6004459524155485723, guid: cac587eeb00f14344bb32780bc54414c, type: 3}
       propertyPath: m_Name
       value: TestField
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057645965505029806, guid: cac587eeb00f14344bb32780bc54414c, type: 3}
+      propertyPath: m_RayLayerMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cac587eeb00f14344bb32780bc54414c, type: 3}
