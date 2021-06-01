@@ -56,32 +56,35 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\World\TerrainGenerator.cs" />
-    <Compile Include="Assets\Scripts\World\TerrainHeightMapJob.cs" />
-    <Compile Include="Assets\Scripts\World\VoxelJob.cs" />
+    <Compile Include="Assets\Scripts\Ants\Larva.cs" />
+    <Compile Include="Assets\Scripts\Ants\AI\AntAgent.cs" />
+    <Compile Include="Assets\Scripts\Utils\ComputeHelper.cs" />
+    <Compile Include="Assets\Scripts\GameState.cs" />
+    <Compile Include="Assets\Scripts\World\MarchingCubes\MeshBakerJob.cs" />
+    <Compile Include="Assets\Scripts\Ants\PupaSystem.cs" />
     <Compile Include="Assets\Scripts\World\Voxel.cs" />
+    <Compile Include="Assets\Scripts\Ants\AntCaste.cs" />
+    <Compile Include="Assets\Scripts\Ants\Pupa.cs" />
+    <Compile Include="Assets\Scripts\World\MarchingCubes\MathUtility.cs" />
+    <Compile Include="Assets\Scripts\Ants\Egg.cs" />
+    <Compile Include="Assets\Scripts\World\TerrainGenerator.cs" />
+    <Compile Include="Assets\Scripts\World\VoxelJob.cs" />
+    <Compile Include="Assets\Scripts\World\MarchingCubes\GenTest.cs" />
+    <Compile Include="Assets\Scripts\World\Polygonize.cs" />
+    <Compile Include="Assets\Scripts\Ants\AntWorkerCaste.cs" />
     <Compile Include="Assets\Scripts\World\MarchingCubes\Chunk.cs" />
     <Compile Include="Assets\Scripts\World\Transvoxel.cs" />
-    <Compile Include="Assets\Scripts\World\TerrainChunkJob.cs" />
-    <Compile Include="Assets\Scripts\World\Polygonize.cs" />
     <Compile Include="Assets\Scripts\World\MarchingCubes\VertexData.cs" />
-    <Compile Include="Assets\Scripts\World\MarchingCubes\MeshBakerJob.cs" />
-    <Compile Include="Assets\Scripts\World\MarchingCubes\GenTest.cs" />
-    <Compile Include="Assets\Scripts\Utils\ComputeHelper.cs" />
-    <Compile Include="Assets\Scripts\World\MarchingCubes\MathUtility.cs" />
-    <Compile Include="Assets\Scripts\Ants\AntSystem.cs" />
-    <Compile Include="Assets\Scripts\Ants\Ant.cs" />
-    <Compile Include="Assets\Scripts\Ants\Larva.cs" />
-    <Compile Include="Assets\Scripts\Ants\PupaSystem.cs" />
-    <Compile Include="Assets\Scripts\Ants\AntCaste.cs" />
+    <Compile Include="Assets\Scripts\Ants\Activity.cs" />
     <Compile Include="Assets\Scripts\Ants\LarvaSystem.cs" />
-    <Compile Include="Assets\Scripts\Ants\Pupa.cs" />
-    <Compile Include="Assets\Scripts\Ants\Egg.cs" />
-    <Compile Include="Assets\Scripts\Ants\AntWorkerCaste.cs" />
-    <Compile Include="Assets\Scripts\Ants\SpeciesDatasheet.cs" />
-    <Compile Include="Assets\Scripts\Ants\Species.cs" />
-    <Compile Include="Assets\Scripts\GameState.cs" />
+    <Compile Include="Assets\Scripts\Ants\Ant.cs" />
+    <Compile Include="Assets\Scripts\World\TerrainHeightMapJob.cs" />
     <Compile Include="Assets\Scripts\Colony\HatchingSystem.cs" />
+    <Compile Include="Assets\Scripts\Ants\Species.cs" />
+    <Compile Include="Assets\Scripts\World\TerrainChunkJob.cs" />
+    <Compile Include="Assets\Scripts\Ants\AntMovementSystem.cs" />
+    <Compile Include="Assets\Scripts\Ants\SpeciesDatasheet.cs" />
+    <Compile Include="Assets\Scripts\Ants\Pheromone.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\World\MarchingCubes\ComputeShaders\MarchingCubes.compute" />
@@ -313,8 +316,23 @@
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@0.15.0-preview.21\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Abstractions">
+      <HintPath>Library\PackageCache\com.unity.ml-agents@2.0.0-pre.3\Plugins\System.IO.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library\PackageCache\com.unity.burst@1.4.1\Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>Library\PackageCache\com.unity.barracuda@2.0.0-pre.3\Barracuda\Runtime\Plugins\ProtoBuffer\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Abstractions.TestingHelpers">
+      <HintPath>Library\PackageCache\com.unity.ml-agents@2.0.0-pre.3\Plugins\System.IO.Abstractions.TestingHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Interactive.Async">
+      <HintPath>Library\PackageCache\com.unity.ml-agents@2.0.0-pre.3\Plugins\ProtoBuffer\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core">
+      <HintPath>Library\PackageCache\com.unity.ml-agents@2.0.0-pre.3\Plugins\ProtoBuffer\Grpc.Core.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
@@ -670,8 +688,14 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.10f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ML-Agents">
+      <HintPath>Library\ScriptAssemblies\Unity.ML-Agents.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Transforms.Hybrid">
       <HintPath>Library\ScriptAssemblies\Unity.Transforms.Hybrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Barracuda.iOSBLAS">
+      <HintPath>Library\ScriptAssemblies\Unity.Barracuda.iOSBLAS.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Properties">
       <HintPath>Library\ScriptAssemblies\Unity.Properties.dll</HintPath>
@@ -700,6 +724,9 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ML-Agents.CommunicatorObjects">
+      <HintPath>Library\ScriptAssemblies\Unity.ML-Agents.CommunicatorObjects.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Entities.Hybrid.EndToEnd.Tests">
       <HintPath>Library\ScriptAssemblies\Unity.Entities.Hybrid.EndToEnd.Tests.dll</HintPath>
     </Reference>
@@ -721,8 +748,17 @@
     <Reference Include="Unity.Collections">
       <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Barracuda.MacBLAS">
+      <HintPath>Library\ScriptAssemblies\Unity.Barracuda.MacBLAS.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Scenes.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Scenes.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Barracuda.ONNX">
+      <HintPath>Library\ScriptAssemblies\Unity.Barracuda.ONNX.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Barracuda.BurstBLAS">
+      <HintPath>Library\ScriptAssemblies\Unity.Barracuda.BurstBLAS.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Extensions.Hybrid">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
@@ -735,6 +771,9 @@
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Barracuda">
+      <HintPath>Library\ScriptAssemblies\Unity.Barracuda.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -786,6 +825,12 @@
     </Reference>
     <Reference Include="Unity.Rendering.Hybrid">
       <HintPath>Library\ScriptAssemblies\Unity.Rendering.Hybrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Barracuda.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Barracuda.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ML-Agents.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ML-Agents.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

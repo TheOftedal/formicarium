@@ -7,6 +7,7 @@ namespace Assets.Scripts.Ants
 {
     public struct Ant : IComponentData
     {
+        public float3 ActivityDestination { get; set; }
         public AntCaste Caste { get; private set; }
         public int Health { get; set; }
         public int Hunger { get; set; }
@@ -24,6 +25,7 @@ namespace Assets.Scripts.Ants
 
         public Ant(Pupa pupa, double timeOfEclosion)
         {
+            ActivityDestination = pupa.Position;
             Caste = GetAntCaste(pupa);
             Health = 100;
             Hunger = 25;
@@ -40,6 +42,7 @@ namespace Assets.Scripts.Ants
 
         public Ant(float3 position, float size, AntCaste caste, double timeOfEclosion)
         {
+            ActivityDestination = position;
             Caste = caste;
             Health = 100;
             Hunger = 0;
