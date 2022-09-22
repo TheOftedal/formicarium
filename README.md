@@ -1,7 +1,7 @@
 # formicarium
 Ant Colony Simulator
 
-# note
+# Note
 This project was never finished and does not run as is
 
 ## Credits
