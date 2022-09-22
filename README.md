@@ -1,6 +1,9 @@
 # formicarium
 Ant Colony Simulator
 
+# note
+This project was never finished and does not run as is
+
 ## Credits
 
 ### Marching Cubes
